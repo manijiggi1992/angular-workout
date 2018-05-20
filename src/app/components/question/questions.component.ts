@@ -11,7 +11,7 @@ import { QuestionService } from '../../services'
 })
 export class QuestionsComponent implements OnInit {
 
-questions: Question[];
+  questions: Question[];
   sub: any;
 
   constructor(private questionService: QuestionService) {

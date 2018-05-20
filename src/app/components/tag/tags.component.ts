@@ -9,7 +9,7 @@ import {TagService} from '../../services'
   styleUrls: ['./tags.component.css']
 })
 export class TagsComponent implements OnInit, OnDestroy {
-  tags: string[];
+  tags: string;
   sub: any;
 
   constructor(private tagService: TagService) {
