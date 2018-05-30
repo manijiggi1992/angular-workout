@@ -1,19 +1,41 @@
-<h1>
-  {{title}}
-</h1>
-<div>
-  <ul>
-    <li>
-      <a [routerLink]="['/categories']">Categories</a>
-    </li>
-    <li>
-      <a [routerLink]="['/tags']">Tags</a>
-    </li>
-    <li>
-      <a [routerLink]="['/questions']">Questions</a>
-    </li>
-  </ul>
-</div>
+<Mat-sidenav-container>
+  <Mat-sidenav #sidenav class="sidenav">
+    <Mat-nav-list>
+      <a Mat-list-item (click)="sidenav.close()" [routerLink]="['/']">
+        <Mat-icon Mat-list-icon>Home</Mat-icon>
+        <span Mat-line>Home</span>
+        <span Mat-line class="secondary">Home</span>
+      </a>
+      <a Mat-list-item (click)="sidenav.close()" [routerLink]="['/categories']">
+        <Mat-icon Mat-list-icon>list</Mat-icon>
+        <span Mat-line>Categories</span>
+        <span Mat-line class="secondary">Categories</span>
+      </a>
+      <a Mat-list-item (click)="sidenav.close()" [routerLink]="['/tags']">
+        <Mat-icon Mat-list-icon>bookmark</Mat-icon>
+        <span Mat-line>Tags</span>
+        <span Mat-line class="secondary">Tags</span>
+      </a>
+      <a Mat-list-item (click)="sidenav.close()" [routerLink]="['/questions']">
+        <Mat-icon Mat-list-icon>question_answer</Mat-icon>
+        <span Mat-line>Questions</span>
+        <span Mat-line class="secondary">Questions</span>
+      </a>
+    </Mat-nav-list>
+  </Mat-sidenav>
 
-<router-outlet></router-outlet>
+  <div class="my-content">
+    <Mat-toolbar [color]="primary">
+      <button Mat-icon-button (click)="sidenav.open()">
+        <Mat-icon>menu</Mat-icon>
+      </button>
+
+      <span>{{title}}</span>
+      <span class="fill-remaining-space"></span>
+      <span>rwa</span>
+    </Mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </div>
+</Mat-sidenav-container>
 

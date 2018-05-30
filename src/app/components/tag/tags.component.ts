@@ -6,10 +6,10 @@ import {TagService} from '../../services'
 @Component({
   selector: 'tag-list',
   templateUrl: './tags.component.html',
-  styleUrls: ['./tags.component.css']
+  styleUrls: ['./tags.component.scss']
 })
 export class TagsComponent implements OnInit, OnDestroy {
-  tags: string;
+  tags: any;
   sub: any;
 
   constructor(private tagService: TagService) {

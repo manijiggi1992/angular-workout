@@ -7,7 +7,7 @@ import { QuestionService } from '../../services'
 @Component({
   selector: 'question-list',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
 
