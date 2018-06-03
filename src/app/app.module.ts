@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { MaterialModule   } from './material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { FlexLayoutModule, BREAKPOINT } from '@angular/flex-layout';
 import { routes } from './app.route';
 import { AppComponent, CategoriesComponent, TagsComponent, QuestionsComponent } from './components';
 import { CategoryService,TagService,QuestionService } from './services';
@@ -21,6 +21,7 @@ import { CategoryService,TagService,QuestionService } from './services';
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    FlexLayoutModule,
     HttpModule,
     BrowserAnimationsModule,
     MaterialModule

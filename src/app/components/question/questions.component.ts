@@ -2,7 +2,10 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Question }     from '../../model';
-import { QuestionService } from '../../services'
+import { QuestionService } from '../../services';
+
+import { Category }     from '../../model';
+import { CategoryService } from '../../services'
 
 @Component({
   selector: 'question-list',
@@ -12,9 +15,10 @@ import { QuestionService } from '../../services'
 export class QuestionsComponent implements OnInit {
 
   questions: Question[];
+  categories:Category[];
   sub: any;
 
-  constructor(private questionService: QuestionService) {
+  constructor(private questionService: QuestionService,private categoryService: CategoryService) {
   }
 
   ngOnInit() {
