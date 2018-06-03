@@ -24,8 +24,9 @@ export class QuestionService {
           let questions: Question[] = combined[0];
           let categories: Category[] = combined[1];
           questions.forEach(q => {
-            q.categories = [];
-            q.categoryIds.forEach(id => q.categories.push(categories.find(element => element.id == id)))
+           q.categories = [];
+          console.log(q)
+           //q.categoryIds.forEach(id => q.categories.push(categories.find(element => element.id == id)))
           })
           return questions;
         })
