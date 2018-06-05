@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import 'hammerjs';
+import { MaterialModule   } from './material.module';
+import { FlexLayoutModule, BREAKPOINT } from '@angular/flex-layout';
 import { routes } from './app.route';
-import { AppComponent, CategoriesComponent, TagsComponent, QuestionsComponent } from './components';
+import { AppComponent, CategoriesComponent, TagsComponent, QuestionsComponent,QuestionAddUpdateComponent } from './components';
 import { CategoryService,TagService,QuestionService } from './services';
 
 
@@ -14,12 +17,18 @@ import { CategoryService,TagService,QuestionService } from './services';
     AppComponent,
     CategoriesComponent,
     QuestionsComponent,
-    TagsComponent
+    TagsComponent,
+    QuestionAddUpdateComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpModule
+    FlexLayoutModule,
+    HttpModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CategoryService,

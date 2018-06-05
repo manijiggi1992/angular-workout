@@ -1,0 +1,12 @@
+<mat-card>
+  <form class="question-form">
+    <mat-card-title>Add Question</mat-card-title>
+    <mat-card-header>
+      <mat-select placeholder="Category" name="category">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{ category.categoryName }}
+        </mat-option>
+      </mat-select>
+    </mat-card-header>
+  </form>
+</mat-card>

@@ -1,5 +1,6 @@
 import { Routes,RouterModule } from '@angular/router';
-import {  CategoriesComponent, TagsComponent, QuestionsComponent } from './components';
+import {  CategoriesComponent, TagsComponent, QuestionsComponent,QuestionAddUpdateComponent
+ } from './components';
 
 export const routes : Routes = [
     {
@@ -14,6 +15,10 @@ export const routes : Routes = [
     {
         path:'questions',
         component:QuestionsComponent
+    },
+    {
+        path:'question/add',
+        component:QuestionAddUpdateComponent
     },
     {
         path:'tags',
