@@ -8,6 +8,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 const modules = [
    MatIconModule,
@@ -17,7 +22,12 @@ const modules = [
    MatListModule,
    MatButtonModule,
    MatCardModule,
-   MatChipsModule
+   MatChipsModule,
+   MatFormFieldModule,
+   MatSelectModule,
+   MatInputModule,
+   MatCheckboxModule,
+   MatRadioModule
 ];
 
 @NgModule({
