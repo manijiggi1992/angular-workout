@@ -13,3 +13,9 @@ md-card-actions {
 .full-width {
   width: 100%;
 }
+/deep/mat-input-container.ng-invalid.ng-touched .ng-input-underline{
+  border-color:red;
+}
+/deep/mat-hint.error, .error{
+  color:red;
+}
