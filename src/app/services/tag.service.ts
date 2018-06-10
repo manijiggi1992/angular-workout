@@ -12,7 +12,7 @@ export class TagService{
 
     }
 
-    getTags():Observable<String[]>{
+    getTags():Observable<string[]>{
         let url = this._serviceUrl;
         return this.http.get(url)
             .map(result => result.json());

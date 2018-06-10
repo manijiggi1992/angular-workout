@@ -21,11 +21,11 @@ $my-dark-theme-background: (
 );
 
 $my-dark-theme-foreground: (
-  base:              yellow,
+  base:              black,
   divider:           $white-12-opacity,
   dividers:          $white-12-opacity,
   disabled:          rgba(white, 0.3),
-  disabled-button:   rgba(white, 0.3),
+  disabled-button:   rgba(black, 0.5),
   disabled-text:     rgba(white, 0.3),
   hint-text:         rgba(white, 0.3),
   secondary-text:    rgba(black, 0.9),
@@ -50,7 +50,7 @@ $my-dark-theme-foreground: (
 }
 
 // The rest of this is like a normal theme.scss file. The only difference being that we use create-wonky-theme instead of mat-light-theme
-$custom-theme-primary: mat-palette($mat-yellow);
+$custom-theme-primary: mat-palette($mat-blue);
 $custom-theme-accent: mat-palette($mat-blue);
 $custom-theme-warn: mat-palette($mat-red);
 
