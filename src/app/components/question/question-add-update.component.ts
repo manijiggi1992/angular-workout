@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, Validators, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 import { AppStore } from '../../store/app-store';
 import { QuestionActions } from '../../store/actions';
-import { User, Category, Question, Answer }     from '../../model';
-import { Router } from '@angular/router';
+import { User, Category, Question, QuestionStatus, Answer }     from '../../model';
 
 @Component({
   templateUrl: './question-add-update.component.html',
@@ -24,13 +24,13 @@ export class QuestionAddUpdateComponent implements OnInit, OnDestroy {
   tags: string[];
   sub2: any;
 
-  user:User;
-
   questionForm: FormGroup;
   question: Question;
   
   autoTags: string[] = []; //auto computed based on match within Q/A
   enteredTags: string[] = [];
+
+  user: User;
 
   get answers(): FormArray { 
     return this.questionForm.get('answers') as FormArray; 
@@ -42,16 +42,10 @@ export class QuestionAddUpdateComponent implements OnInit, OnDestroy {
   //Constructor
   constructor(private fb: FormBuilder,
               private store: Store<AppStore>,
-              private router : Router,
+              private router: Router,
               private questionActions: QuestionActions) {
     this.categoriesObs = store.select(s => s.categories);
     this.tagsObs = store.select(s => s.tags);
-
-    this.sub2 = store.select(s => s.user).subscribe(user => {
-      this.user = user
-      if(!user)
-        this.router.navigate(['/']);
-    });
   }
 
   //Lifecycle hooks
@@ -99,8 +93,12 @@ export class QuestionAddUpdateComponent implements OnInit, OnDestroy {
     //get question object from the forms
     console.log(this.questionForm.value);
     let question: Question = this.getQuestionFromFormValue(this.questionForm.value);
+
+    question.status = QuestionStatus.SUBMITTED;
+    this.store.take(1).subscribe(s => this.user = s.user);
     console.log(question);
 
+    question.created_uid = this.user.userId;
     //call saveQuestion
     this.saveQuestion(question);
   }

@@ -2,7 +2,7 @@ import { Observable } from 'rxjs/Observable';
 import '../../rxjs-extensions';
 import {Action} from '@ngrx/store';
 
-import { TagActions } from '../actions/tag.actions';
+import { TagActions } from '../actions';
 
 export const tags = (state: any = [], action: Action): string[] => {
   switch (action.type) {

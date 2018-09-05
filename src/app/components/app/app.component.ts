@@ -14,7 +14,7 @@ import { User } from '../../model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'My Demo!';
+  title = 'trivia!';
   user: User;
   sub: any;
   sub2: any;
@@ -35,12 +35,18 @@ export class AppComponent implements OnInit, OnDestroy {
     })
 
     this.sub2 = store.select(s => s.user).subscribe(user => {
-      this.user = user
-      if(user){
-        let url:string;
+      this.user = user;
+      if (user)
+      {
+        console.log(user);
+        let url: string;
         this.store.take(1).subscribe(s => url = s.loginRedirectUrl);
-        if(url)
+        if (url)
           this.router.navigate([url]);
+      }
+      else {
+        //if user logsout then redirect to home page
+        this.router.navigate(['/']);
       }
     });
   }
@@ -54,10 +60,12 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.sub)
       this.sub.unsubscribe();
+    
+    if (this.sub2)
+      this.sub2.unsubscribe();
   }
 
   login() {
-    
     this.authService.ensureLogin();
   }
 

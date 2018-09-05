@@ -1,7 +1,8 @@
 import { User, Category, Question } from '../model';
 
-import { user, categories, categoryDictionary, tags, questions, questionSaveStatus,
-  loginRedirectUrl  } from './reducers';
+import { user, categories, categoryDictionary, tags, 
+         questions, unpublishedQuestions, sampleQuestions, questionSaveStatus, userQuestions,
+         loginRedirectUrl } from './reducers';
 
 import { combineReducers } from '@ngrx/store';
 import { compose } from '@ngrx/core/compose';
@@ -12,8 +13,11 @@ export interface AppStore {
   categoryDictionary: {[key: number]: Category};
   tags: string[];
   questions: Question[];
+  unpublishedQuestions: Question[];
+  userQuestions: Question[];
+  sampleQuestions: Question[];
   questionSaveStatus: string;
-  loginRedirectUrl : string;
+  loginRedirectUrl: string;
 }
 
 export default compose(combineReducers)({
@@ -22,6 +26,9 @@ export default compose(combineReducers)({
   categoryDictionary: categoryDictionary,
   tags: tags,
   questions: questions,
+  unpublishedQuestions: unpublishedQuestions,
+  userQuestions: userQuestions,
+  sampleQuestions: sampleQuestions,
   questionSaveStatus: questionSaveStatus,
-  loginRedirectUrl :loginRedirectUrl 
+  loginRedirectUrl: loginRedirectUrl
 });
