@@ -1,5 +1,5 @@
 { "categories": [
-    {"id": 1, "categoryName": "Special"},
+    {"id": 1, "categoryName": "Special", "requiredForGamePlay": true},
     {"id": 2, "categoryName": "Programming"},
     {"id": 3, "categoryName": "Architecture"},
     {"id": 4, "categoryName": "Networking/Infrastructure"},
@@ -150,7 +150,8 @@
       "Distributed",
       "GIT"
     ],
-    "questions": [
+    "questions": {
+        "published": [
         {
             "id": 1,
             "questionText": "Which of the following function of Array object reverses the order of the elements of an array?",
@@ -169,10 +170,8 @@
                 "correct": false}
             ],
             "ordered": false,
-            "tags": ["JavaScript"],
-            "categories": [
-                {"id": 2}
-            ]
+            "tags": ["JavaScript", "front-end", "ES5"],
+            "categoryIds": [2]
         },
         {
             "id": 2,
@@ -192,10 +191,8 @@
                 "correct": true}
             ],
             "ordered": false,
-            "tags": ["JavaScript"],
-            "categories": [
-                {"id": 2}
-            ]
+            "tags": ["JavaScript", "front-end"],
+            "categoryIds": [2]
         },
         {
             "id": 3,
@@ -216,9 +213,7 @@
             ],
             "ordered": false,
             "tags": ["JavaScript"],
-            "categories": [
-                {"id": 2}
-            ]
+            "categoryIds": [2]
         },
         {
             "id": 4,
@@ -239,9 +234,7 @@
             ],
             "ordered": false,
             "tags": ["JavaScript"],
-            "categories": [
-                {"id": 2}
-            ]
+            "categoryIds": [2]
         },
         {
             "id": 5,
@@ -261,10 +254,8 @@
                 "correct": false}
             ],
             "ordered": true,
-            "tags": ["JavaScript"],
-            "categories": [
-                {"id": 2}
-            ]
+            "tags": ["JavaScript", "ES5"],
+            "categoryIds": [2]
         },
         {
             "id": 6,
@@ -284,10 +275,10 @@
                 "correct": false}
             ],
             "ordered": false,
-            "tags": [],
-            "categories": [
-                {"id": 1}
-            ]
+            "tags": ["gaming"],
+            "categoryIds": [1]
         }
-    ]  
+        ],
+        "unpublished": []
+    }  
 }
