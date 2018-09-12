@@ -1,30 +1,34 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
-import { Question }     from '../../model';
-import { QuestionService } from '../../services'
+import { AppStore } from '../../store/app-store';
+import { Question, QuestionStatus, Category }     from '../../model';
 
 @Component({
   selector: 'question-list',
   templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  styleUrls: ['./questions.component.scss']
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionsComponent implements OnInit, OnDestroy {
+  @Input() questions: Question[];
+  @Input() categoryDictionary: {[key: number]: Category};
+  @Input() showApproveButton: boolean;
+  @Output() approveClicked = new EventEmitter<Question>();
 
-  questions: Question[];
-  sub: any;
-
-  constructor(private questionService: QuestionService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.sub = this.questionService.getQuestions()
-                   .subscribe(questions => this.questions = questions);
   }
 
   ngOnDestroy() {
-    if (this.sub)
-      this.sub.unsubscribe();
   }
 
+  getDisplayStatus(status: number): string {
+    return QuestionStatus[status];
+  }
+  approveButtonClicked(question: Question ) {
+    this.approveClicked.emit(question)
+  }
 }
