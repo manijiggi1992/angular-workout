@@ -1,0 +1,6 @@
+ul li{
+    font-size: 16px;
+}
+.answer.correct span::before{
+    content: '\2713';
+}
