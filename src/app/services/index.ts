@@ -2,13 +2,13 @@ import {CategoryService} from './category.service';
 import {TagService} from './tag.service';
 import {QuestionService} from './question.service';
 
-export{
+export {
     CategoryService,
     TagService,
     QuestionService
 };
 
-export default[
+export default [
     CategoryService,
     TagService,
     QuestionService

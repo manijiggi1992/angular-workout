@@ -1,29 +1,30 @@
-import { Component, OnInit,Input,OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
-import { Category } from '../../model';
-import { CategoryService } from '../../services'
+import { AppStore } from '../../store/app-store';
+import { Category }     from '../../model';
 
 @Component({
   selector: 'category-list',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.css']
+  styleUrls: ['./categories.component.scss']
 })
-export class CategoriesComponent implements OnInit {
-  categories:Category[];
-  sub:any;
+export class CategoriesComponent implements OnInit, OnDestroy {
+  categoriesObs: Observable<Category[]>;
+  categories: Category[];
+  sub: any;
 
-  constructor(private categoryService:CategoryService) { }
+  constructor(private store: Store<AppStore>) {
+    this.categoriesObs = store.select(s => s.categories);
+  }
 
   ngOnInit() {
-      this.sub = this.categoryService.getCategories()
-                      .subscribe(getcategory => this.categories = getcategory);
+    this.sub = this.categoriesObs.subscribe(categories => this.categories = categories);
   }
 
-  ngOnDestroy(){
-    if(this.sub){
+  ngOnDestroy() {
+    if (this.sub)
       this.sub.unsubscribe();
-    }
   }
-
 }
