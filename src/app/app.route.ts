@@ -1,22 +1,27 @@
-import { Routes,RouterModule } from '@angular/router';
-import {  CategoriesComponent, TagsComponent, QuestionsComponent } from './components';
+import { Routes, RouterModule }  from '@angular/router';
+import { CategoriesComponent, TagsComponent, QuestionsComponent, QuestionAddUpdateComponent } 
+  from './components/index';
 
-export const routes : Routes = [
-    {
-        path:'',
-        redirectTo:'/categories',
-        pathMatch:'full'
-    },
-    {
-        path:'categories',
-        component:CategoriesComponent
-    },
-    {
-        path:'questions',
-        component:QuestionsComponent
-    },
-    {
-        path:'tags',
-        component:TagsComponent
-    }
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/categories',
+    pathMatch: 'full'
+  },
+  {
+    path: 'categories',
+    component: CategoriesComponent
+  },
+  {
+    path: 'tags',
+    component: TagsComponent
+  },
+  {
+    path: 'questions',
+    component: QuestionsComponent
+  },
+  {
+    path: 'question/add',
+    component: QuestionAddUpdateComponent
+  }
 ];

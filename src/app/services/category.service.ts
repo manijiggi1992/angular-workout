@@ -1,23 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Http,Headers} from '@angular/http';
-import { Observable } from 'rxjs/Observable'; 
+import { Injectable }    from '@angular/core';
+import { Headers, Http } from '@angular/http';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Observable } from 'rxjs/Observable';
 import '../rxjs-extensions';
 
 import { Category } from '../model/category';
 
 @Injectable()
-export class CategoryService{
-    private _serviceUrl = "http://localhost:3000/categories";
+export class CategoryService {
 
-    constructor(private http:Http){
+  constructor(private af: AngularFire) { 
+  }
 
-    }
-
-    getCategories():Observable<Category[]>{
-        let url = this._serviceUrl;
-        return this.http.get(url)
-            .map(result => result.json());
-
-    }
+  getCategories(): Observable<Category[]> {
+    return this.af.database.list('/categories');
+  }
+  
 }
-

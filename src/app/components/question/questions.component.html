@@ -1,13 +1,38 @@
-<p>
-  questions-component works!
-</p>
-<ul>
-  <li *ngFor="let question of questions">
-      <span>{{question.questionText}}</span>
-      <ul>
-        <li *ngFor="let answer of question.answers" class="answer" [class.answer]="answer.correct">
-             <span>{{answer.answerText}}</span>
-        </li>
-      </ul>
-  </li>
-</ul>
+<md-card>
+  <button md-fab class="page-action" [routerLink]="['/question/add']">
+    <md-icon class="md-24">add</md-icon>
+  </button>
+
+  <md-card-title>Questions</md-card-title>
+  <md-card-content class="flex-container" 
+      fxLayoutWrap="wrap"
+      fxLayout="row"
+      fxLayoutAlign="center" fxLayoutAlign.xs="start">    
+
+  <md-card *ngFor="let question of questions" class="flex-item question-card">
+    <md-card-header>
+      <md-card-title>
+        <span *ngFor="let id of question.categoryIds">
+          {{categoryDictionary[id].categoryName}}
+        </span>
+      </md-card-title>
+      <md-card-subtitle>
+        {{question.questionText}}
+      </md-card-subtitle>
+    </md-card-header>
+    <md-card-content>
+      <md-list dense> 
+        <md-list-item *ngFor="let answer of question.answers">
+          {{answer.answerText}}<md-icon *ngIf="answer.correct" md-list-icon>check</md-icon>
+        </md-list-item>
+      </md-list>
+
+      <md-chip-list>
+        <md-chip *ngFor="let tag of question.tags">
+          {{tag}}
+        </md-chip>
+      </md-chip-list>
+    </md-card-content>
+  </md-card>
+  </md-card-content>    
+</md-card>
