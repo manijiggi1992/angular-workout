@@ -3,11 +3,11 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 import { AngularFire } from 'angularfire2';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import '../rxjs-extensions';
+import '../../rxjs-extensions';
 
-import { AppStore } from '../../store/app-store';
+import { AppStore } from '../store/app-store';
 import { LoginComponent } from '../components/login/login.component';
-import { UserActions, UIStateActions } from '../../store/actions';
+import { UserActions, UIStateActions } from '../store/actions';
 import { User } from '../../model';
 
 

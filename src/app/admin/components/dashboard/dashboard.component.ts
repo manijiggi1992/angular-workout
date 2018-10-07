@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppStore>,
               private questionActions: QuestionActions) {
     this.categoriesObs = store.select(s => s.categories);
-    this.categoryDictObs = store.select(s => s.categoryDictionary );
+    this.categoryDictObs = store.select(s => s.categoryDictionary);
     this.tagsObs = store.select(s => s.tags);
     this.questionsObs = store.select(s => s.questions);
     this.sampleQuestionsObs = store.select(s => s.sampleQuestions);

@@ -6,14 +6,14 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$trivia-app-primary: mat-palette($mat-indigo);
-$trivia-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$jiggi-app-primary: mat-palette($mat-indigo);
+$jiggi-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$trivia-app-warn:    mat-palette($mat-red);
+$jiggi-app-warn:    mat-palette($mat-red);
 
 //customize the background theme
-$trivia-app-theme-background: (
+$jiggi-app-theme-background: (
   status-bar: map_get($mat-teal, 300),
   app-bar:    map_get($mat-teal, 100),
   background: map_get($mat-teal, 50),
@@ -25,7 +25,7 @@ $trivia-app-theme-background: (
 );
 
 //app theme funtion returns the theme from the palletes
-@function trivia-app-theme-fn($primary, $accent, $warn, $foreground, $background) {
+@function jiggi-app-theme-fn($primary, $accent, $warn, $foreground, $background) {
   @return (
     primary: $primary,
     accent: $accent,
@@ -37,10 +37,10 @@ $trivia-app-theme-background: (
 }
 
 // Create the theme object (a Sass map containing all of the palettes).
-$trivia-app-theme: trivia-app-theme-fn($trivia-app-primary, $trivia-app-accent, $trivia-app-warn, 
-                                       $mat-light-theme-foreground, $trivia-app-theme-background);
+$jiggi-app-theme: jiggi-app-theme-fn($jiggi-app-primary, $jiggi-app-accent, $jiggi-app-warn, 
+                                       $mat-light-theme-foreground, $jiggi-app-theme-background);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($trivia-app-theme);
+@include angular-material-theme($jiggi-app-theme);

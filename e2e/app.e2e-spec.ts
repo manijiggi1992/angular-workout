@@ -1,10 +1,10 @@
-import { TriviaPage } from './app.po';
+import { jiggiPage } from './app.po';
 
-describe('trivia App', function() {
-  let page: TriviaPage;
+describe('jiggi App', function() {
+  let page: jiggiPage;
 
   beforeEach(() => {
-    page = new TriviaPage();
+    page = new jiggiPage();
   });
 
   it('should display message saying app works', () => {

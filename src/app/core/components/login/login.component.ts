@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
 
-import { AppStore } from '../../../store/app-store';
+import { AppStore } from '../../store/app-store';
 import { PasswordAuthComponent } from './password-auth.component';
 
 @Component({

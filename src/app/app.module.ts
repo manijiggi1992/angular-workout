@@ -1,31 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule  } from '@angular/router';
 
-import { SharedModule } from  './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from  './shared/shared.module';
 import { RoutingModule } from  './routing/routing.module';
-import { AdminModule } from './admin/admin.module';
+import { MyQuestionsModule } from  './myQuestions/my-questions.module';
 
-import { AppComponent, DashboardComponent,
-  QuestionAddUpdateComponent, MyQuestionsComponent } from './components';
+import { AppComponent, DashboardComponent } from './components';
 
 @NgModule({
   declarations: [
-    AppComponent, DashboardComponent, QuestionAddUpdateComponent, MyQuestionsComponent
+    AppComponent, DashboardComponent
   ],
   imports: [
     BrowserModule,
 
     //rwa modules
-    SharedModule,
     CoreModule,
+    SharedModule,
     RoutingModule,
-    AdminModule
-
+    MyQuestionsModule
   ],
   providers: [ 
-
   ],                                                                      
   bootstrap: [AppComponent]
 })

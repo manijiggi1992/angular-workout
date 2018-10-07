@@ -1,12 +1,12 @@
 import { Injectable }    from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { Observable } from 'rxjs/Observable';
-import '../rxjs-extensions';
+import '../../rxjs-extensions';
 
 import { User, Question, QuestionStatus }     from '../../model';
 import { Store } from '@ngrx/store';
-import { AppStore } from '../../store/app-store';
-import { QuestionActions } from '../../store/actions';
+import { AppStore } from '../store/app-store';
+import { QuestionActions } from '../store/actions';
 
 @Injectable()
 export class QuestionService {
@@ -18,7 +18,7 @@ export class QuestionService {
   getSampleQuestions(): Observable<Question[]> {
     return this.af.database.list('/questions/published', {
       query: {
-        limitToLast: 6,
+        limitToLast: 4,
       }
     });
   }
@@ -35,15 +35,27 @@ export class QuestionService {
                     });
                  });
                  return questions;
+              })
+              .catch(error => {
+                console.log(error);
+                return Observable.of(null);
               });
   }
 
   getQuestions(): Observable<Question[]> {
-    return this.af.database.list('/questions/published');
+    return this.af.database.list('/questions/published')
+              .catch(error => {
+                console.log(error);
+                return Observable.of(null);
+              });
   }
 
   getUnpublishedQuestions(): Observable<Question[]> {
-    return this.af.database.list('/questions/unpublished');
+    return this.af.database.list('/questions/unpublished')
+              .catch(error => {
+                console.log(error);
+                return Observable.of(null);
+              });
   }
 
   saveQuestion(question: Question) {

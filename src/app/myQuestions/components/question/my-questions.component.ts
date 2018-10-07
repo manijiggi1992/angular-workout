@@ -2,9 +2,9 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { AppStore } from '../../store/app-store';
-import { QuestionActions } from '../../store/actions';
-import { User, Question, Category }     from '../../model';
+import { AppStore } from '../../../core/store/app-store';
+import { QuestionActions } from '../../../core/store/actions';
+import { User, Question, Category }     from '../../../model';
 
 @Component({
   selector: 'my-questions',
@@ -23,7 +23,6 @@ export class MyQuestionsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(this.store.take(1))
     this.store.take(1).subscribe(s => this.user = s.user);
     this.store.dispatch(this.questionActions.loadUserQuestions(this.user));
   }

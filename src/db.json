@@ -259,13 +259,13 @@
         },
         {
             "id": 6,
-            "questionText": "What's the best Trivia game?",
+            "questionText": "What's the best jiggi game?",
             "answers": [
                 {"id": 1,
                 "answerText": "Quiz Up",
                 "correct": false},
                 {"id": 2,
-                "answerText": "Trivia Crack",
+                "answerText": "jiggi Crack",
                 "correct": false},
                 {"id": 3,
                 "answerText": "The one I'm playing",

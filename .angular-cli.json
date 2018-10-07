@@ -1,7 +1,7 @@
 {
   "project": {
     "version": "1.0.0-beta.25.5",
-    "name": "trivia"
+    "name": "jiggi"
   },
   "apps": [
     {
@@ -18,7 +18,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "rwa-trivia.theme.scss",
+        "rwa-jiggi.theme.scss",
         "styles.scss"
       ],
       "scripts": [],
